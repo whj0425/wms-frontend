@@ -1,7 +1,7 @@
 <script setup>
 import {  } from '@element-plus/icons-vue'
 import { useRouter, useRoute } from 'vue-router';
-import { House, ShoppingCart, Van } from '@element-plus/icons-vue';
+import { House, ShoppingCart, Van, User } from '@element-plus/icons-vue';
 
 const router = useRouter();
 const route = useRoute();
@@ -33,7 +33,7 @@ const navigate = (index) => {
             <el-icon><van /></el-icon>
             Inventory
           </template>
-          <el-menu-item index="/app/inventory" :class="{ active: isActive('/app/inventory') }">View Items</el-menu-item>
+          <el-menu-item index="/app/inventory" :class="{ active: isActive('/app/inventory') }">In and Out</el-menu-item>
         </el-sub-menu>
 
         <el-sub-menu index="/app/orders">
@@ -42,6 +42,14 @@ const navigate = (index) => {
             Orders
           </template>
           <el-menu-item index="/app/orders" :class="{ active: isActive('/app/orders') }">Order List</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="/app/user-mgt">
+          <template #title>
+            <el-icon><User /></el-icon>
+            User Mgt
+          </template>
+          <el-menu-item index="/app/user-mgt" :class="{ active: isActive('/app/user-mgt') }">User Management</el-menu-item>
         </el-sub-menu>
       </el-menu>
     </el-scrollbar>

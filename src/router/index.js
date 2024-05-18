@@ -4,6 +4,7 @@ import Inventory from '@/views/Inventory.vue'
 import Orders from '@/views/Orders.vue'
 import Login from '@/views/Login.vue'
 import MainLayout from "@/components/MainLayout.vue";
+import User from "@/views/User.vue";
 
 const routes = [
     {
@@ -36,6 +37,11 @@ const routes = [
                 path: 'orders',
                 name: 'Orders',
                 component: Orders
+            },
+            {
+                path: 'user-mgt',
+                name: 'User-mgt',
+                component: User
             }
         ]
     }
