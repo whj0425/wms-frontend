@@ -14,8 +14,7 @@ onMounted(async () => {
 
 const fetchUsers = async () => {
   try {
-    const response = await axios.get('https://775efbe1.r23.cpolar.top/api/user/all');
-    console.log('Fetched users:', response.data.content);
+    const response = await axios.get('/api/user/all');
     tableData.value = response.data.content;
   } catch (error) {
     console.error('Failed to fetch user data:', error);
@@ -29,7 +28,7 @@ const addUser = async () => {
       ElMessage.error('Password is required');
       return;
     }
-    await axios.post('https://775efbe1.r23.cpolar.top/api/user', newUser.value, {
+    await axios.post('/api/user', newUser.value, {
       headers: { 'Content-Type': 'application/json' }
     });
     ElMessage.success('User added successfully');
@@ -42,7 +41,7 @@ const addUser = async () => {
 
 const deleteUser = async (id) => {
   try {
-    await axios.delete('https://775efbe1.r23.cpolar.top/api/user', { params: { id } });
+    await axios.delete('/api/user', { params: { id } });
     ElMessage.success('User deleted successfully');
     await fetchUsers();
   } catch (error) {
@@ -51,15 +50,15 @@ const deleteUser = async (id) => {
   }
 };
 
-const updateUser = async (user) => {
+const updateUser = async () => {
   try {
-    console.log("Updating user: ", user);
-    if (user.roles && typeof user.roles === 'string') {
+    const user = editUser.value;
+    if (typeof user.roles === 'string') {
       user.roles = user.roles.split(',').map(role => role.trim());
     } else if (!user.roles) {
       user.roles = [];
     }
-    await axios.put('https://775efbe1.r23.cpolar.top/api/user', user, {
+    await axios.put('/api/user', user, {
       headers: { 'Content-Type': 'application/json' }
     });
     ElMessage.success('User updated successfully');
@@ -72,11 +71,8 @@ const updateUser = async (user) => {
 };
 
 const handleEdit = (user) => {
-  console.log("Edit button clicked for user: ", user);
   editUser.value = { ...user, roles: Array.isArray(user.roles) ? user.roles.join(', ') : user.roles };
   dialogVisible.value = true;
-  console.log("Dialog visibility set to: ", dialogVisible.value);
-  console.log("Edit user data set to: ", editUser.value);
 };
 </script>
 
@@ -139,7 +135,7 @@ const handleEdit = (user) => {
       </el-form>
       <template #footer>
         <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="updateUser(editUser.value)">Save</el-button>
+        <el-button type="primary" @click="updateUser">Save</el-button>
       </template>
     </el-dialog>
   </el-main>
@@ -150,4 +146,3 @@ const handleEdit = (user) => {
   padding: 20px;
 }
 </style>
-

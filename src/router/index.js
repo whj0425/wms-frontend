@@ -5,6 +5,7 @@ import Orders from '@/views/Orders.vue'
 import Login from '@/views/Login.vue'
 import MainLayout from "@/components/MainLayout.vue";
 import User from "@/views/User.vue";
+import Supplier from "@/views/Supplier.vue";
 
 const routes = [
     {
@@ -42,7 +43,13 @@ const routes = [
                 path: 'user-mgt',
                 name: 'User-mgt',
                 component: User
+            },
+            {
+                path: 'supplier-mgt',
+                name: 'Supplier-mgt',
+                component: Supplier
             }
+
         ]
     }
 

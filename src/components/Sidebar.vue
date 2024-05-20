@@ -51,6 +51,14 @@ const navigate = (index) => {
           </template>
           <el-menu-item index="/app/user-mgt" :class="{ active: isActive('/app/user-mgt') }">User Management</el-menu-item>
         </el-sub-menu>
+
+        <el-sub-menu index="/app/supplier-mgt">
+          <template #title>
+            <el-icon><User /></el-icon>
+            Supplier Mgt
+          </template>
+          <el-menu-item index="/app/supplier-mgt" :class="{ active: isActive('/app/supplier-mgt') }">Sup Management</el-menu-item>
+        </el-sub-menu>
       </el-menu>
     </el-scrollbar>
   </el-aside>

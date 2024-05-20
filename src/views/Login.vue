@@ -16,7 +16,7 @@ const isRegister = ref(false)
 
 const login = async () => {
   try {
-    const response = await axios.post('/api/login', {
+    const response = await axios.post('http://localhost:8088/api/login', {
       username: username.value,
       password: password.value
     });
