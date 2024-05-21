@@ -6,11 +6,11 @@ import MainContent from '@/components/MainContent.vue'
 
 <template>
   <div>
-    <Header />
+    <Header/>
     <div class="main-content">
-      <Sidebar />
+      <Sidebar/>
       <MainContent>
-        <router-view />
+        <router-view/>
       </MainContent>
     </div>
   </div>

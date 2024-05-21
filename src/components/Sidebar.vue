@@ -1,12 +1,10 @@
 <script setup>
-import {  } from '@element-plus/icons-vue'
-import { useRouter, useRoute } from 'vue-router';
 import { House, ShoppingCart, Van, User } from '@element-plus/icons-vue';
+import { useRouter, useRoute } from 'vue-router';
 
 const router = useRouter();
 const route = useRoute();
 
-// Helper to determine if the route is active to apply active class styling
 const isActive = (path) => {
   return route.path.includes(path);
 };
@@ -66,17 +64,18 @@ const navigate = (index) => {
 
 <style scoped>
 .sidebar {
-  width: 200px;
-  min-height: 100vh;
-  background-color: #2c3e50;
+  height: calc(100vh - 64px); /* 减去头部的高度 */
+  background-color: #ffffff; /* 修改为白色背景 */
+  border-right: 1px solid #ddd; /* 添加右边框 */
 }
+
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
-  min-height: 100vh;
+  min-height: 100%;
 }
+
 .active {
   color: #409EFF;
   background-color: #eef1f6;
 }
 </style>
-

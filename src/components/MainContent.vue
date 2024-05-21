@@ -3,7 +3,7 @@
 
 <template>
   <main class="main-content-area">
-    <slot></slot>  <!-- Here we use a slot to inject any child content from the router view. -->
+    <slot></slot>
   </main>
 </template>
 
@@ -12,6 +12,8 @@
   flex-grow: 1;
   padding: 20px;
   background-color: #ecf0f1;
+  min-height: calc(100vh - 64px); /* 减去头部的高度 */
 }
 </style>
+
 

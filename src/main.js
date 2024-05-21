@@ -8,7 +8,7 @@ import router from "@/router/index.js";
 
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import axios from "axios";
-axios.defaults.baseURL = "http://280ea253.r22.cpolar.top";
+axios.defaults.baseURL = "http://6a04d10b.r7.cpolar.top";
 
 
 
